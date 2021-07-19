@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  width: 100vw;
+  height: 100vh;
+}
+
+:root {
+  font-size: 16px;
+  font-family: sans-serif;
+  --color1:#0090e9;
+  --color2:#bf0500;
+  --color3:#fe6e28;
+}
+
+/**/
+aside {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color1);
+}
+
+@media (min-width: 600px) {
+  aside {
+    width: 400px;
+  }
+}
+
+/*Overriding properties*/
+.hidden {
+  display: none;
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.close {
+  padding: 2em;
+  border: 2px solid black;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */
