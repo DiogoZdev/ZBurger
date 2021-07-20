@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,14 +11,68 @@ body, html {
 }
 
 :root {
-  font-size: 16px;
+  font-size: 22px;
   font-family: sans-serif;
-  --color1:#0090e9;
-  --color2:#bf0500;
-  --color3:#fe6e28;
+  --color0:#1c4a75;
+  --color1:#3c79a0;
+  --color2:#bb3c37;
+  --color3:#ff8344;
 }
 
-/**/
+/* Construction Elements */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'lobster';
+}
+
+h1 {
+  font-size: 3.8rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+hr {
+  color: var(--color0);
+  position: relative;
+  margin: 10px 0;
+}
+
+hr:before {
+  position: absolute;
+  transform: translateX(10%);
+  width: 80%;
+  height: 5px;
+  top: 5px;
+  content: '';
+  padding-top: 5px;
+  border-top: 2px solid var(--color0);
+}
+
+hr:after {
+  position: absolute;
+  content: 'zBurger';
+  font-family: 'lobster';
+  font-size: 1.5rem;
+  width: 100%;
+  text-align: center;
+  transform: translateY(-50%);
+  text-shadow: 0px 0px 2px white, 0px 0px 4px white,  0px 0px 5px white, 0px 0px 6px white,  0px 0px 7px white,  0px 0px 8px white;
+}
+
+/* Visible Elements */
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.container div {
+  width: 100%;
+  height: 100%;
+}
+
 aside {
   position: absolute;
   right: 0;
@@ -32,11 +87,119 @@ aside {
   }
 }
 
-/*Overriding properties*/
-.hidden {
-  display: none;
+header {
+  background-color: var(--color2);
+  color: white;
+  min-height: 25vh;
 }
 
+header .phone {
+  font-size: 1.5rem;
+}
+
+nav {
+  position: static;
+  background-color: var(--color0);
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  padding: 1rem;
+  list-style: none;
+  color: white;
+  font-size: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+nav ul li:hover {
+  background-color: var(--color2);
+  cursor: pointer;
+}
+
+main {
+  height: 150vh;
+}
+
+.item-modal {
+  width: 30%;
+  margin: 1rem;
+}
+
+.item-modal .modal-top {
+  width: 100%;
+}
+
+.item-modal .modal-top .modal-image {
+  width: 65%;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  background: #ccc;
+  margin: 1rem auto;
+  overflow: hidden;
+}
+
+.item-modal .modal-bottom {
+  width: 100%;
+}
+
+.item-modal .modal-bottom hr {
+  position: relative;
+  margin: 0 auto;
+  width: 75%;
+  color: var(--color0);
+}
+
+.item-modal .modal-bottom hr:before {
+  position: absolute;
+  transform: translateX(10%);
+  width: 80%;
+  height: 5px;
+  top: 5px;
+  content: '';
+  padding-top: 5px;
+  border-top: 2px solid var(--color0);
+}
+
+.item-modal .modal-bottom hr:after {
+  content: '';
+}
+
+.item-modal .modal-bottom .title {
+  font-family: 'lobster';
+  margin: .5rem auto;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.item-modal .modal-bottom .price {
+  font-family: 'lobster';
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  color: var(--color0);
+}
+
+.item-modal .modal-bottom .add {
+  width: 60px;
+  margin: 0 auto;
+  font-family: 'lobster';
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  background-color: var(--color0);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.item-modal .modal-bottom .add:hover {
+  background-color: var(--color1);
+}
+
+/*Overriding properties*/
 .row {
   display: flex;
 }
@@ -53,4 +216,20 @@ aside {
   font-weight: bold;
   cursor: pointer;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+/* Font Styles */
 /*# sourceMappingURL=style.css.map */
