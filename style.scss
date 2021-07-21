@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin:0; padding:0;
+}
+
+body, html{
+    width:100vw;
+    height:100vh;
+    overflow-x: hidden;
+}
+
+:root{
+    font-size: 22px;
+    font-family: sans-serif;
+
+    --color0:#1c4a75;    
+    --color1:#3c79a0;
+    --color2:#bb3c37;
+    --color3:#ff8344;
+    --color4:#fff2c6;
+}
+
+/* Construction Elements */
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'lobster';
+}
+
+h1{
+    font-size: 3.8rem;
+}
+
+h2{
+    font-size: 2rem;
+}
+
+hr{
+    color:var(--color0);
+    position: relative;
+    margin:10px 0;
+
+    &:before{
+        position: absolute;
+        transform: translateX(10%);
+        width:80%;
+        height:5px;
+        top:5px;
+        content:'';
+        padding-top:5px;
+        border-top:2px solid var(--color0);
+    }
+
+    &:after{
+        position: absolute;
+        content:'zBurger';
+        font-family: 'lobster';
+        font-size: 1.5rem;
+        width:100%;
+        text-align: center;
+        transform: translateY(-50%);
+        text-shadow: 
+        0px 0px 2px white,
+        0px 0px 4px white, 
+        0px 0px 5px white,
+        0px 0px 6px white, 
+        0px 0px 7px white, 
+        0px 0px 8px white;
+    }
+}
+
+
+/* Visible Elements */
+
+.container{
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    padding:2rem;
+
+    div{
+        width:100%; height:100%;
+    }
+}
+
+aside{
+    position:absolute;
+    right:0;
+    z-index: 10;
+
+    width:100%;
+    height:100%;
+
+    background-color: var(--color1);
+
+    @media (min-width:600px) {
+        width:400px;
+
+        border-left:2px solid black;
+    }
+}
+
+header{
+    //background-image: url(../images/burg.png);
+    //background-size: 200px;
+    background-color: var(--color2);
+    color:white;
+    min-height: 25vh;
+
+    div{
+        @media (max-width:800px){
+            display:flex;
+            flex-direction: column;
+
+            h1{
+                font-size: 5rem;
+                margin-bottom:2rem;
+            }
+
+
+        }
+    }
+
+    .phone{
+        
+        font-size: 1.5rem;
+        @media (max-width:800px){
+            margin:2rem;
+        }
+    }
+}
+
+nav{
+    position: static;
+    background-color: var(--color0);
+    
+
+    ul{
+        display:flex;
+
+        li{
+            padding:1rem;
+            list-style: none;
+            color:white;
+            font-size: 1rem;
+            width: 100%;
+            text-align: center;
+
+            &:hover{
+                background-color: var(--color2);
+                cursor:pointer;
+            }
+        }
+    }
+
+}
+
+main{
+    min-height:150vh;
+}
+
+.display{
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.item-modal{
+    max-width:100%;
+    margin:1rem 0;
+    //border:1px orange solid;
+    @media (min-width:800px){
+        max-width: 49%;
+        
+    }
+
+    
+
+    .modal-top{
+        width:100%;
+        //box-shadow: 2px 2px 2px orange;
+
+        
+
+        .modal-image{
+            width:65%;
+            aspect-ratio: 1;
+            border-radius: 100%;
+            background:var(--color4);
+            margin:1rem auto;
+            overflow: hidden;
+
+            img{
+                width:100%;
+            }
+
+        }
+        
+    }
+
+    .modal-bottom{
+        width:100%;
+
+        hr{
+            position: relative;
+            margin: 2rem auto 0 auto;
+            width:75%;
+            color:var(--color0);        
+
+            &:after{
+                content:'';
+            }
+        }
+
+        .modal-title{
+            font-family: 'lobster';
+            margin: 1rem auto;
+            text-align:center;
+            font-size: 1.5rem;
+        }
+
+        .modal-price{
+            font-family: 'lobster';
+            text-align:center;
+            margin:1rem 0;
+            font-size: 1.2rem;
+            color:var(--color0);
+        }
+
+        .add{
+            width:60px;
+            margin:1rem auto;
+            font-family: 'lobster';
+            text-align:center;
+            font-size: 2rem;
+            color:white;
+            background-color: var(--color0);
+            border-radius: 5px;
+
+            cursor:pointer;
+
+            &:hover{
+                background-color: var(--color1);
+            }
+        }
+    }
+}
+
+footer{
+    width: 100%;
+    background-color: var(--color0);
+    color:white;
+}
+
+
+
+
+/*Overriding properties*/
+
+.row{
+    display:flex;
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+}
+
+.col2{
+    columns:2;
+}
+
+.close{
+    padding:2em;
+    text-align: center;
+    font-weight: bold;
+    cursor:pointer;
+
+    &:hover{
+        background-color: var(--color2);
+    }
+
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden{
+    display:none;
+}
+
+.no-padding{
+    padding:0;
+}
+
+/* Font Styles */
+

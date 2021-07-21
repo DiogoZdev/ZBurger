@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Z-Burger delivery app</title>
+</head>
+<body>
+    <aside class="cart col hidden">
+        <div class="close" onClick="toggleBag()">[ Fechar ]</div>
+    </aside>
+
+    <header>
+        <div class="container row">
+            
+            <div><h1>zBurger</h1></div>
+            <div class="contact">
+                ☎ (43) 3322-1100<br>
+                contato@zburger.com
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container no-padding">
+            <ul>
+                <li>Sobre</li>
+                <li onClick="toggleBag()">Sacola</li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container ">
+            <h2>Hamburgers</h2>
+            <hr>
+            <div class="display">
+                
+            </div>
+            <hr>
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="container ">
+            Simplesmente o melhor que você já provou
+
+
+        </div>
+    </footer>
+
+
+
+    <temaplates class="hidden">
+        
+        <div class="item-modal">
+            <div class="modal-top">
+                <div class="modal-image">
+
+                </div>
+            </div>
+            <div class="modal-bottom">
+                <div class="modal-title">
+                    Hamburger
+                </div>
+                <div class="modal-price">
+                    R$ 29.90
+                </div>
+                <div class="add" data-burger="" onClick="add_toCart(this)">
+                    +
+                </div>
+                <hr>
+            </div>
+        </div>
+
+
+        <div class="cart-modal">
+            <div class="cart-item-img"></div>
+            <div class="cart-item-name"></div>
+            <div class="cart-item-quantity"></div>
+        </div>
+
+    </temaplates>
+
+
+</body>
+<script src="scripts/burgerJSON.js"></script>
+<script src="scripts/buildingFunctions.js"></script>
+</html>
