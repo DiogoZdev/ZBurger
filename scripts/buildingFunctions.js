@@ -16,8 +16,12 @@ burgerJSON.map((burger)=>{
 
 
 // FUNÇÃO PARA ABRIR E FECHAR VISUALIZAÇÃO DA SACOLA
-function toggleBag() {
+function toggleCart() {
     qs('.cart').classList.toggle('hidden');
+}
+
+function toggleInfo() {
+    qs('.information').classList.toggle('hidden');
 }
 
 

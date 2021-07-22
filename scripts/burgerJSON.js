@@ -8,7 +8,7 @@ let burgerJSON = [
     {
         id:2,
         src:"../images/burger450/burger2.png", 
-        name:"Stick",
+        name:"Chicken Stick",
         pricing:21.00,
     },
     {
