@@ -10,8 +10,44 @@
     <title>Z-Burger delivery app</title>
 </head>
 <body>
+
+    <section class="information hidden">
+        <button class="no" onClick="toggleInfo()">fechar</button>
+        <hr>
+        <p><span class="alert">O zBurger é um projeto fictício.</span><br>
+            
+            Todas as imagens, valores e informações aqui contidas fazem parte da prática do 
+            desenvolvimento de um projeto web responsivo. <br><br>
+            Diogo é Desenvolvedor Front-end cursando Análise e Desenvolvimento de Sistemas. Mais informações e outros projetos
+            podem ser encontrados neste <a href="https://diogozdev.github.io" target="_blank">link</a> [ diogozdev.github.io ].
+            <br><br>
+            Vai me dizer que não deu vontade de pedir um? :D 
+        </p>
+    </section>
+
     <aside class="cart col hidden">
-        <div class="close" onClick="toggleBag()">[ Fechar ]</div>
+        <button class="button no" onClick="toggleCart()">fechar</button>
+        <div class="cart-items-area" id="cart-items-area">
+
+
+
+            <div class="cart-modal">
+                <div class="cart-item-img"><img src="https://unsplash.it/100/100" alt=""></div>
+                <div class="cart-item-quantity">2</div>
+                <div class="cart-item-name">Light Garden</div>
+                <div class="remove-from-cart">-</div>
+            </div>
+
+            <div class="cart-modal">
+                <div class="cart-item-img"><img src="https://unsplash.it/100/100" alt=""></div>
+                <div class="cart-item-quantity">2</div>
+                <div class="cart-item-name">Light Garden</div>
+                <div class="remove-from-cart">-</div>
+            </div>
+
+
+        </div>
+        <button class="button yes" onClick="confirmRequest()">confirmar pedido</button>
     </aside>
 
     <header>
@@ -19,7 +55,7 @@
             
             <div><h1>zBurger</h1></div>
             <div class="contact">
-                ☎ (43) 3322-1100<br>
+                ☎ (44) 3322-1100<br>
                 contato@zburger.com
             </div>
         </div>
@@ -28,8 +64,8 @@
     <nav>
         <div class="container no-padding">
             <ul>
-                <li>Sobre</li>
-                <li onClick="toggleBag()">Sacola</li>
+                <li onClick="toggleInfo()">Sobre</li>
+                <li onClick="toggleCart()">Sacola</li>
             </ul>
         </div>
     </nav>
@@ -47,8 +83,8 @@
     </main>
 
     <footer>
-        <div class="container ">
-            Simplesmente o melhor que você já provou
+        <div class="container quote">
+            Simplesmente o melhor Hamburger
 
 
         </div>
@@ -56,24 +92,16 @@
 
 
 
-    <temaplates class="hidden">
+    <templates class="hidden">
         
         <div class="item-modal">
             <div class="modal-top">
-                <div class="modal-image">
-
-                </div>
+                <div class="modal-image">img</div>
             </div>
             <div class="modal-bottom">
-                <div class="modal-title">
-                    Hamburger
-                </div>
-                <div class="modal-price">
-                    R$ 29.90
-                </div>
-                <div class="add" data-burger="" onClick="add_toCart(this)">
-                    +
-                </div>
+                <div class="modal-title">Burg --</div>
+                <div class="modal-price">R$ --</div>
+                <div class="add" data-burger="" onClick="add_toCart(this)">+</div>
                 <hr>
             </div>
         </div>
@@ -81,11 +109,12 @@
 
         <div class="cart-modal">
             <div class="cart-item-img"></div>
-            <div class="cart-item-name"></div>
             <div class="cart-item-quantity"></div>
+            <div class="cart-item-name"></div>
+            <div class="remove-from-cart"></div>
         </div>
 
-    </temaplates>
+    </templates>
 
 
 </body>
