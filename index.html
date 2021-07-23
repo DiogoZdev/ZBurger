@@ -30,7 +30,7 @@
         <div class="cart-items-area" id="cart-items-area">
 
 
-
+            <!--
             <div class="cart-modal">
                 <div class="cart-item-img"><img src="https://unsplash.it/100/100" alt=""></div>
                 <div class="cart-item-quantity">2</div>
@@ -44,10 +44,12 @@
                 <div class="cart-item-name">Light Garden</div>
                 <div class="remove-from-cart">-</div>
             </div>
-
+            -->
 
         </div>
+        <div class="value">Valor total: <span class="totalValue">R$ 00.00</span></div>
         <button class="button yes" onClick="confirmRequest()">confirmar pedido</button>
+        <button class="button no" onClick="clearBag()">limpar sacola</button>
     </aside>
 
     <header>
@@ -109,9 +111,9 @@
 
         <div class="cart-modal">
             <div class="cart-item-img"></div>
-            <div class="cart-item-quantity"></div>
-            <div class="cart-item-name"></div>
-            <div class="remove-from-cart"></div>
+            <div class="cart-item-quantity">0</div>
+            <div class="cart-item-name">Burger</div>
+            <div class="remove-from-cart" onClick="remove_cart_item()" data-pos="">-</div>
         </div>
 
     </templates>

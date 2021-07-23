@@ -27,12 +27,73 @@ function toggleInfo() {
 
 
 //ARRAY RESPONSÁVEL POR ARMAZENAR OS ÍTENS ADICIONADOS À SACOLA DE COMPRA
-let bagArray = [];
+let cartArray = [];
 
 
 //FUNÇÃO QUE ADICIONA OS ÍTENS AO ARRAY DA SACOLA DE COMPRA
 function add_toCart(id){
     let burgId = id.getAttribute('data-burger');
 
-    bagArray.push(burgerJSON[burgId]);
+    cartArray.push(burgerJSON[burgId]);
+
+    qs('#cart-items-area').innerHTML = '';
+    updateCart();
+}
+
+
+function updateCart(){
+
+    if(cartArray.length !== 0){
+      
+        cartArray.map((item) => { //cada item no array a ser incrementado
+        
+            let cartItem = qs('.cart-modal').cloneNode(true);
+
+            cartItem.querySelector('.cart-item-img').innerHTML = `<img src="${item.src}" />`;
+            cartItem.querySelector('.cart-item-quantity').innerHTML = '1';
+            cartItem.querySelector('.cart-item-name').innerHTML = item.name;
+            cartItem.querySelector('.remove-from-cart').setAttribute('data-pos', cartArray.length - 1);
+
+            qs('#cart-items-area').append( cartItem );    
+
+            updateTotalValue();
+        }); 
+
+    } else {
+        qs('#cart-items-area').innerHTML="";
+    }
+
+    
+}
+
+function updateTotalValue(){
+    let price = 0;
+
+    for(let i in cartArray ){
+        price += cartArray[i].pricing;
+    }
+
+    qs('.totalValue').innerHTML = price.toFixed(2);
+
+}
+
+function clearBag(){
+    cartArray = [];
+    updateCart();
+    qs('#cart-items-area').innerHTML = '';
+    qs('.totalValue').innerHTML = '00,00';
+
+}
+
+/*
+<div class="cart-modal">
+    <div class="cart-item-img"></div>
+    <div class="cart-item-quantity"></div>
+    <div class="cart-item-name"></div>
+    <div class="remove-from-cart"></div>
+</div>
+*/
+
+function confirm() {
+    
 }

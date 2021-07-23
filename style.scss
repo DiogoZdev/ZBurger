@@ -76,12 +76,12 @@ hr{
 section{
     display: flex;
     flex-direction: column;
-    z-index: 10;
+    z-index: 5;
 
     position:fixed;
     border-radius:20px;
-    box-shadow: 0 0 5px 5px #0005;
-    inset: 1rem;
+    box-shadow: 0 0 5px 2px #0003;
+    inset: .5rem;
     background-color: white;
     padding: 1rem;
 
@@ -129,7 +129,7 @@ section{
 aside{
     position:absolute;
     right:0;
-    z-index: 10;
+    z-index: 2;
     overflow-y: scroll;
     display: block;
 
@@ -139,10 +139,23 @@ aside{
     background-color: #eee;
     color:black;
 
-    @media (min-width:600px) {
+    @media (min-width:800px) {
         width:400px;
 
         border-left:2px solid black;
+    }
+
+    .value{
+       //border:1px solid red;
+
+        font-family: 'lobster';
+        font-size: 1.5rem;
+        text-align: center;
+        margin:0 1rem;
+
+        .totalValue{
+            color:#27b627;
+        }
     }
 
     
@@ -161,10 +174,11 @@ aside{
 
     .cart-item-img{
         margin:.5rem;
+        width:150px;
         aspect-ratio: 1;
         border-radius: 100%;
         overflow: hidden;
-
+        
         img{
             width:100%;
         }
@@ -182,6 +196,7 @@ aside{
     .remove-from-cart{
         width:40px; height:40px;
         border-radius: 100%;
+        flex-shrink: 0;
         margin:1rem;
         background-color: #bb3c37;
         text-align: center;
@@ -321,6 +336,7 @@ main{
         }
 
         .add{
+            position: relative;
             width:60px;
             margin:1rem auto;
             font-family: 'lobster';
@@ -329,11 +345,21 @@ main{
             color:white;
             background-color: var(--color0);
             border-radius: 5px;
+            transition:0s;
+            transition-delay: 1s;
 
             cursor:pointer;
 
             &:hover{
                 background-color: var(--color1);
+            }
+
+            &:active{
+                background-color: var(--color3);
+                transition:.0s;
+                transition-delay: 0s;
+
+                
             }
         }
     }
@@ -390,7 +416,8 @@ footer{
 }
 
 button{
-        display: block;
+        display: inline-block;
+        flex-shrink: 0;
         height:4rem;
         border:none;
         border-radius: 10px;
@@ -403,16 +430,16 @@ button{
 }
 
 .yes{
-    background-color: rgb(39, 182, 39);
+    background-color: #27b627;
     &:hover{
-        background-color: rgb(0, 214, 0);
+        background-color: #00d600;
     }
 }
 
 .no{
     background-color: crimson;
     &:hover{
-        background-color: rgb(168, 15, 15);
+        background-color: #a80f0f;
     }
 }
 
