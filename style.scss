@@ -74,6 +74,7 @@ hr{
 /* Visible Elements */
 
 section{
+    position: fixed;
     display: flex;
     flex-direction: column;
     z-index: 5;
@@ -84,19 +85,6 @@ section{
     inset: .5rem;
     background-color: white;
     padding: 1rem;
-
-    overflow-y: scroll;
-
-    .closeInfo{
-        background-color: crimson;
-        border-radius: .5rem;
-        padding:1rem;
-        text-align: center;
-        font-family: 'lobster';
-        font-size: 1.5rem;
-        text-transform: capitalize;
-        color:white;
-    }
 
     hr{
         margin:2rem;
@@ -113,7 +101,56 @@ section{
             margin-left: 1rem;
         }
     }
-}
+
+    .info{
+        //border:solid 1px red;
+        width:100%;
+        max-height:50%;
+        overflow-y: scroll;
+    }
+ }
+
+ form{
+     display: flex;
+     flex-direction: column;
+
+     label{
+         font-family: 'lobster';
+         font-size: 1.3rem;
+         text-indent: 1rem;
+     }
+
+    input{
+        border:none;
+        height:1.8rem;
+        margin-bottom: .5rem;
+        background-color: #eee;
+        border-radius: 5px;
+        padding-inline: 1rem;
+        font-size:1rem;
+    }
+
+     input[type=number]{
+        width:8rem;
+    }
+
+    div{
+        display: flex;
+        gap:2rem;
+
+        @media (max-width:600px){
+            flex-direction: column;
+            gap:0;
+        }
+
+
+        div{
+            display: flex;
+            flex-direction: column;
+            gap: 0rem;
+        }
+    }
+ }
 
 .container{
     width: 100%;
@@ -129,7 +166,7 @@ section{
 aside{
     position:absolute;
     right:0;
-    z-index: 2;
+    z-index: 3;
     overflow-y: scroll;
     display: block;
 
@@ -239,7 +276,8 @@ header{
 }
 
 nav{
-    position: static;
+    position: sticky;
+    z-index: 2;
     background-color: var(--color0);
     
 
@@ -430,16 +468,23 @@ button{
 }
 
 .yes{
-    background-color: #27b627;
+    background-color: #2b2;
     &:hover{
-        background-color: #00d600;
+        background-color: #1a1;
     }
 }
 
 .no{
-    background-color: crimson;
+    background-color: #a00;
     &:hover{
-        background-color: #a80f0f;
+        background-color: #800;
+    }
+}
+
+.neutral{
+    background-color: #424242;
+    &:hover{
+        background-color: #272727;
     }
 }
 
@@ -448,6 +493,12 @@ button{
 }
 
 /* Font Styles */
+
+.requestInfo{
+    font-family: monospace;
+    font-weight: bold;
+    padding:.0 .5rem;
+}
 
 .quote{
     font-family: 'lobster';

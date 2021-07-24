@@ -1,8 +1,19 @@
+// Useful constants
 
-//CONSTANTES UTILIZADAS
+const business_phone = 43984449774;
+const delivery_in = "1 hora";
+
 const qs = (element)=>document.querySelector(element);
 
-//INSERIR CADA HAMBURGUER (IMAGEM, NOME, PREÇO, ID) NO MODAL
+
+// Add functionalities do document
+
+qs('#toggleRequest--cancel').addEventListener('click', toggleRequest);
+qs('#toggleRequest--aside').addEventListener('click', toggleRequest);
+
+
+// Insert each hamburger into modal (IMAGE, NAME, PRICE, ID)
+
 burgerJSON.map((burger)=>{
     let modal = qs('.item-modal').cloneNode(true);
 
@@ -15,22 +26,24 @@ burgerJSON.map((burger)=>{
 });
 
 
-// FUNÇÃO PARA ABRIR E FECHAR VISUALIZAÇÃO DA SACOLA
+// Open or close cart visualization
+
 function toggleCart() {
     qs('.cart').classList.toggle('hidden');
 }
 
 function toggleInfo() {
-    qs('.information').classList.toggle('hidden');
+    qs('.general-information').classList.toggle('hidden');
 }
 
 
 
-//ARRAY RESPONSÁVEL POR ARMAZENAR OS ÍTENS ADICIONADOS À SACOLA DE COMPRA
+// The bag
 let cartArray = [];
 
 
-//FUNÇÃO QUE ADICIONA OS ÍTENS AO ARRAY DA SACOLA DE COMPRA
+// Add items into bag
+
 function add_toCart(id){
     let burgId = id.getAttribute('data-burger');
 
@@ -40,11 +53,17 @@ function add_toCart(id){
     updateCart();
 }
 
+// Remove items from bag
+
+function removeFromBag(item) {
+    cartArray.splice(item.getAttribute('id', 1) )
+}
+
+
+// Update items in the cart
 
 function updateCart(){
-
     if(cartArray.length !== 0){
-      
         cartArray.map((item) => { //cada item no array a ser incrementado
         
             let cartItem = qs('.cart-modal').cloneNode(true);
@@ -58,13 +77,12 @@ function updateCart(){
 
             updateTotalValue();
         }); 
-
     } else {
         qs('#cart-items-area').innerHTML="";
     }
-
-    
 }
+
+// Update caqt total value
 
 function updateTotalValue(){
     let price = 0;
@@ -72,28 +90,48 @@ function updateTotalValue(){
     for(let i in cartArray ){
         price += cartArray[i].pricing;
     }
-
-    qs('.totalValue').innerHTML = price.toFixed(2);
-
+    qs('.totalValue').innerHTML = `R$ ${price.toFixed(2)}`;
 }
+
+// Clean items from cart
 
 function clearBag(){
     cartArray = [];
     updateCart();
     qs('#cart-items-area').innerHTML = '';
-    qs('.totalValue').innerHTML = '00,00';
-
+    qs('.totalValue').innerHTML = 'R$ 00,00';
 }
 
-/*
-<div class="cart-modal">
-    <div class="cart-item-img"></div>
-    <div class="cart-item-quantity"></div>
-    <div class="cart-item-name"></div>
-    <div class="remove-from-cart"></div>
-</div>
-*/
 
-function confirm() {
+
+function toggleRequest(){
+    qs('.confirm-request').classList.toggle('hidden');   
+}
+
+
+// Enviar dados do formulário para o WhatsApp
+
+function submitRequest() {
+
+    let name = qs('#name').value;
+    let address = `${qs('#city').value}, ${qs('#street').value}, ${qs('#number').value} - ${qs('#complement').value}`;
+
+    let request = `** Eentrega em ${delivery_in} **
+    Cliente: ${name}. 
+    Endereço: ${address}.
+
+    ${cartArray.map((item) => {
+        return `zB ${item.id} `
+    })}
+
+    Total: ${qs('.totalValue').innerHTML}`; 
+   
+    console.log(request); 
+    let finalRequest = encodeURI(request);
+
+    window.open(`https://wa.me/+55${business_phone}?text=${finalRequest}`, '_brlank');
     
+    toggleCart();
+    toggleRequest();
+    alert(' Seu pedido foi enviado com sucesso. Já é possível fechar o app. Bom apetite! ;) ');
 }

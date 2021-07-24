@@ -7,49 +7,63 @@
 
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Z-Burger delivery app</title>
+    <title>zBurger delivery app</title>
 </head>
 <body>
 
-    <section class="information hidden">
+    <section class="confirm-request hidden">
+        <hr>
+        
+        <form action="">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name">
+            <label for="name">Cidade:</label>
+            <input label="Cidade" type="text" id="city" name="city">
+            <label for="name">Rua:</label>
+            <input label="Rua" type="text" id="street" name="street">
+            <div>
+                <div>
+                    <label for="name">Número:</label>
+                    <input label="número" type="number" id="number" name="number">
+                </div><div>
+                    <label for="other">Complemento:</label>
+                    <input label="número" type="text" id="complement" name="complement">
+                </div>
+            </div>    
+        </form>
+        <button type="submit" class="yes" onClick="submitRequest()">enviar pedido</button>
+        <button class="neutral" id="toggleRequest--cancel">cancelar</button>
+    </section>
+
+    <section class="general-information hidden">
         <button class="no" onClick="toggleInfo()">fechar</button>
         <hr>
-        <p><span class="alert">O zBurger é um projeto fictício.</span><br>
-            
-            Todas as imagens, valores e informações aqui contidas fazem parte da prática do 
-            desenvolvimento de um projeto web responsivo. <br><br>
-            Diogo é Desenvolvedor Front-end cursando Análise e Desenvolvimento de Sistemas. Mais informações e outros projetos
-            podem ser encontrados neste <a href="https://diogozdev.github.io" target="_blank">link</a> [ diogozdev.github.io ].
-            <br><br>
-            Vai me dizer que não deu vontade de pedir um? :D 
-        </p>
+        <div class="info">
+            <p><span class="alert">O zBurger é um protótipo.</span><br>
+                
+                Com anos de experiência proporcionando o melhor sabor, agora recebendo pedidos por WhatsApp.<br>
+                O zBurger oferece os produtos de melhor qualidade: pães gourmet, carne fresca grelhada no ponto e acompanhamentos
+                selecionados para satisfazer aquele desejo por um podrão gourmet.
+                Sediada no município de Londrina, a zBurger teve um início humilde com suas primeiras vendas no centro da cidade.
+                Amizade é tradição e o melhor serviço é o padrão conhecido e amado por todos.
+                Bateu aquela fome? Não deixe de pedir agora o seu favorito!   
+                
+                Mais informações e outros projetos
+                podem ser encontrados neste <a href="https://diogozdev.github.io" target="_blank">link</a> [ diogozdev.github.io ].
+                <br><br>
+                Vai me dizer que não deu vontade de pedir um? :D 
+            </p>
+        </div>
     </section>
 
     <aside class="cart col hidden">
         <button class="button no" onClick="toggleCart()">fechar</button>
-        <div class="cart-items-area" id="cart-items-area">
 
+        <div class="cart-items-area" id="cart-items-area"></div>
 
-            <!--
-            <div class="cart-modal">
-                <div class="cart-item-img"><img src="https://unsplash.it/100/100" alt=""></div>
-                <div class="cart-item-quantity">2</div>
-                <div class="cart-item-name">Light Garden</div>
-                <div class="remove-from-cart">-</div>
-            </div>
-
-            <div class="cart-modal">
-                <div class="cart-item-img"><img src="https://unsplash.it/100/100" alt=""></div>
-                <div class="cart-item-quantity">2</div>
-                <div class="cart-item-name">Light Garden</div>
-                <div class="remove-from-cart">-</div>
-            </div>
-            -->
-
-        </div>
         <div class="value">Valor total: <span class="totalValue">R$ 00.00</span></div>
-        <button class="button yes" onClick="confirmRequest()">confirmar pedido</button>
-        <button class="button no" onClick="clearBag()">limpar sacola</button>
+        <button class="button yes" id="toggleRequest--aside">confirmar pedido</button>
+        <button class="button neutral" onClick="clearBag()">limpar sacola</button>
     </aside>
 
     <header>
@@ -57,8 +71,9 @@
             
             <div><h1>zBurger</h1></div>
             <div class="contact">
-                ☎ (44) 3322-1100<br>
-                contato@zburger.com
+                ☎ (43) 98444-9774<br>
+                contato@zburger.com<br>
+                de Seg à Sáb - das 17:00 às 23:30 
             </div>
         </div>
     </header>
@@ -67,7 +82,7 @@
         <div class="container no-padding">
             <ul>
                 <li onClick="toggleInfo()">Sobre</li>
-                <li onClick="toggleCart()">Sacola</li>
+                <li class="bag" onClick="toggleCart()">Sacola</li>
             </ul>
         </div>
     </nav>
@@ -87,8 +102,6 @@
     <footer>
         <div class="container quote">
             Simplesmente o melhor Hamburger
-
-
         </div>
     </footer>
 
@@ -113,7 +126,11 @@
             <div class="cart-item-img"></div>
             <div class="cart-item-quantity">0</div>
             <div class="cart-item-name">Burger</div>
-            <div class="remove-from-cart" onClick="remove_cart_item()" data-pos="">-</div>
+            <div class="remove-from-cart" onClick="removeFromBag()" data-pos="">-</div>
+        </div>
+
+        <div class="requestInfo">
+            
         </div>
 
     </templates>

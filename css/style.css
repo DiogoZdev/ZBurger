@@ -64,6 +64,7 @@ hr:after {
 
 /* Visible Elements */
 section {
+  position: fixed;
   display: flex;
   flex-direction: column;
   z-index: 5;
@@ -73,18 +74,6 @@ section {
   inset: .5rem;
   background-color: white;
   padding: 1rem;
-  overflow-y: scroll;
-}
-
-section .closeInfo {
-  background-color: crimson;
-  border-radius: .5rem;
-  padding: 1rem;
-  text-align: center;
-  font-family: 'lobster';
-  font-size: 1.5rem;
-  text-transform: capitalize;
-  color: white;
 }
 
 section hr {
@@ -105,6 +94,55 @@ section p {
   }
 }
 
+section .info {
+  width: 100%;
+  max-height: 50%;
+  overflow-y: scroll;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-family: 'lobster';
+  font-size: 1.3rem;
+  text-indent: 1rem;
+}
+
+form input {
+  border: none;
+  height: 1.8rem;
+  margin-bottom: .5rem;
+  background-color: #eee;
+  border-radius: 5px;
+  padding-inline: 1rem;
+  font-size: 1rem;
+}
+
+form input[type=number] {
+  width: 8rem;
+}
+
+form div {
+  display: flex;
+  gap: 2rem;
+}
+
+@media (max-width: 600px) {
+  form div {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+form div div {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+}
+
 .container {
   width: 100%;
   max-width: 900px;
@@ -120,7 +158,7 @@ section p {
 aside {
   position: absolute;
   right: 0;
-  z-index: 2;
+  z-index: 3;
   overflow-y: scroll;
   display: block;
   width: 100%;
@@ -217,7 +255,8 @@ header .phone {
 }
 
 nav {
-  position: static;
+  position: sticky;
+  z-index: 2;
   background-color: var(--color0);
 }
 
@@ -392,19 +431,27 @@ button {
 }
 
 .yes {
-  background-color: #27b627;
+  background-color: #2b2;
 }
 
 .yes:hover {
-  background-color: #00d600;
+  background-color: #1a1;
 }
 
 .no {
-  background-color: crimson;
+  background-color: #a00;
 }
 
 .no:hover {
-  background-color: #a80f0f;
+  background-color: #800;
+}
+
+.neutral {
+  background-color: #424242;
+}
+
+.neutral:hover {
+  background-color: #272727;
 }
 
 .alert {
@@ -412,6 +459,12 @@ button {
 }
 
 /* Font Styles */
+.requestInfo {
+  font-family: monospace;
+  font-weight: bold;
+  padding: .0 .5rem;
+}
+
 .quote {
   font-family: 'lobster';
   font-size: 1.8rem;
