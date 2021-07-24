@@ -20,6 +20,10 @@ body, html{
     --color2:#bb3c37;
     --color3:#ff8344;
     --color4:#fff2c6;
+
+    @media (max-width:800px){
+        font-size: 14px;
+    }
 }
 
 /* Construction Elements */
