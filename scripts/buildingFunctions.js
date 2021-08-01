@@ -51,6 +51,7 @@ function add_toCart(id){
 
     qs('#cart-items-area').innerHTML = '';
     updateCart();
+    updateBagCount();
 }
 
 // Remove items from bag PENDING
@@ -76,6 +77,20 @@ function updateCart(){
     }
 }
 
+// Update cart items counter value
+
+function updateBagCount() {
+    qs('.bag-count-items').innerHTML = cartArray.length;
+
+    if(cartArray.length > 0){
+        qs('.bag-icon').classList.add('attention');
+    
+        setTimeout(()=>{
+            qs('.bag-icon').classList.remove('attention');
+        },2000);
+    }
+}
+
 // Update caqt total value
 
 function updateTotalValue(){
@@ -92,6 +107,8 @@ function updateTotalValue(){
 function clearBag(){
     cartArray = [];
     updateCart();
+    updateBagCount();
+    toggleCart();
     qs('#cart-items-area').innerHTML = '';
     qs('.totalValue').innerHTML = 'R$ 00,00';
 }
@@ -123,7 +140,7 @@ function submitRequest() {
     console.log(request); 
     let finalRequest = encodeURI(request);
 
-    window.open(`https://wa.me/+55${business_phone}?text=${finalRequest}`, '_brlank');
+    window.open(`https://wa.me/+55${business_phone}?text=${finalRequest}`, '_blank');
     
     toggleCart();
     toggleRequest();
